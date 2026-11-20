@@ -6,8 +6,7 @@ services:
     rootDir: backend
     plan: free
     buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm build
-    preDeployCommand: pnpm prisma:migrate:deploy
-    startCommand: pnpm start
+    startCommand: pnpm prisma:migrate:deploy && pnpm start
     envVars:
       - key: NODE_ENV
         value: production
