@@ -1,4 +1,5 @@
 services:
+  # Fastify API & WebSocket Server
   - type: web
     name: classradar-api
     runtime: node
@@ -26,6 +27,28 @@ services:
         sync: false
       - key: ATTENDANCE_THRESHOLD
         value: "75"
+
+  # Next.js Fullstack Web Application (Render Fallback)
+  - type: web
+    name: classradar-web
+    runtime: node
+    rootDir: frontend
+    plan: free
+    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm build
+    startCommand: pnpm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: NEXT_PUBLIC_API_URL
+        sync: false
+      - key: NEXT_PUBLIC_SOCKET_URL
+        sync: false
+      - key: NVIDIA_API_KEY
+        sync: false
+      - key: NEXT_PUBLIC_NVIDIA_MODEL
+        value: nvidia/nemotron-3.5-lightning-30b-a3b
 
 databases:
   - name: classradar-postgres
