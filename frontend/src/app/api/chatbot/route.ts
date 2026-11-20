@@ -46,8 +46,8 @@ Critical Instructions:
           { role: 'system', content: systemPrompt },
           { role: 'user', content: prompt },
         ],
-        temperature: 0.2,
-        max_tokens: 2048,
+        temperature: 0.1,
+        max_tokens: 350,
         chat_template_kwargs: { thinking: false },
       }),
     });
