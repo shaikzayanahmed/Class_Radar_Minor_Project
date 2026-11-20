@@ -6,7 +6,7 @@ export async function POST(req: NextRequest) {
 
     const apiKey =
       process.env.NVIDIA_API_KEY ||
-      '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';
+      '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';
     const model =
       process.env.NEXT_PUBLIC_NVIDIA_MODEL || 'nvidia/nemotron-3.5-lightning-30b-a3b';
 
