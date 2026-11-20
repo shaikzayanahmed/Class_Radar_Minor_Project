@@ -76,6 +76,16 @@ export function TopHeader() {
         ...current,
       ].slice(0, 20));
     },
+    'deadline:finalized': (payload: any) => {
+      setNotifications((current) => [
+        {
+          id: `deadline-finalized-${payload?.id || Date.now()}`,
+          title: '📌 Submission Deadline Finalized',
+          detail: `"${payload?.title || 'Assignment'}" for ${payload?.subjectName || payload?.subjectCode || 'Course'} has been officially finalized. Due date: ${new Date(payload?.dueDate).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' })}.`,
+        },
+        ...current,
+      ].slice(0, 20));
+    },
   });
 
   useEffect(() => {

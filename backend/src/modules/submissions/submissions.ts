@@ -315,7 +315,7 @@ export const registerSubmissionsRoutes = (
         countdown = 'Deadline Passed';
       } else {
         const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-        const diffDays = Math.floor(diffHours / 24);
+        const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
 
         if (diffHours < 24) {
           urgency = 'CRITICAL';
